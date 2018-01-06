@@ -10,14 +10,35 @@ import Foundation
 import CoreData
 
 extension ManagedContact {
-    static func generateContactIdString() -> String {
-        return String(arc4random()+arc4random())
+    private static func generateContactIdString() -> String {
+        return String("\(arc4random()) \(arc4random())")
     }
     
-    static func fetchRequestContacts(with: String, model: NSManagedObjectModel) -> NSFetchRequest<ManagedContact>? {
+    static func findContacts(in context: NSManagedObjectContext) -> [ManagedContact]? {
+        guard let model = context.persistentStoreCoordinator?.managedObjectModel else {
+            print("Model is not availible in context!")
+            assert(false)
+            return nil
+        }
+        
+        guard let fetchRequest = ManagedContact.fetchRequestContacts(model: model) else {
+            return nil
+        }
+
+        do {
+            let results = try context.fetch(fetchRequest)
+            return results
+        } catch {
+            print("Failed to fetch AppUSer: \(error)")
+        }
+
+        return nil
+    }
+    
+    private static func fetchRequestContacts(model: NSManagedObjectModel) -> NSFetchRequest<ManagedContact>? {
         let templateName = "ManagedContact"
         
-        guard let fetchRequest = model.fetchRequestFromTemplate(withName: templateName, substitutionVariables: ["id" : with]) as? NSFetchRequest<ManagedContact> else {
+        guard let fetchRequest = model.fetchRequestFromTemplate(withName: templateName, substitutionVariables: [:]) as? NSFetchRequest<ManagedContact> else {
             assert(false, "No template with name \(templateName)!")
             return nil
         }
@@ -25,14 +46,14 @@ extension ManagedContact {
         return fetchRequest.copy() as? NSFetchRequest<ManagedContact>
     }
     
-    static func addContact(with contactID: String, firstName: String, lastName:  String, phoneNumber: String, streetAddress1: String, streetAddress2: String, city: String, state: String, zipCode: String) {
+    static func addContact(firstName: String, lastName:  String, phoneNumber: String, streetAddress1: String?, streetAddress2: String?, city: String?, state: String?, zipCode: String?) {
         guard let context = CoreDataManager.coreDataStack?.saveContext else {
             print("Unable to get context")
             return
         }
         
         let contact = NSEntityDescription.insertNewObject(forEntityName: "ManagedContact", into: context) as? ManagedContact
-        contact?.contactID = contactID
+        contact?.contactID = ManagedContact.generateContactIdString()
         contact?.firstName = firstName
         contact?.lastName = lastName
         contact?.phoneNumber = phoneNumber

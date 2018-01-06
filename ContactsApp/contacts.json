@@ -9,5 +9,27 @@
   "city": "Moscow",
   "state": "Moscow state",
   "zipCode": "390000"
+  },
+  {
+  "contactID": "123",
+  "firstName": "Jhon",
+  "lastName": "Appleseed",
+  "phoneNumber": "8914647121",
+  "streetAddress1": "Test street 1",
+  "streetAddress2": "Test street 2",
+  "city": "Moscow",
+  "state": "Moscow state",
+  "zipCode": "390000"
+  },
+  {
+  "contactID": "123",
+  "firstName": "Kate",
+  "lastName": "Austin",
+  "phoneNumber": "8914647121",
+  "streetAddress1": "Test street 1",
+  "streetAddress2": "Test street 2",
+  "city": "Moscow",
+  "state": "Moscow state",
+  "zipCode": "390000"
   }
   ]

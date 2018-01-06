@@ -11,7 +11,7 @@
         <attribute name="streetAddress2" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="zipCode" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <fetchRequest name="ManagedContact" entity="ManagedContact" predicateString="contactID == $id"/>
+    <fetchRequest name="ManagedContact" entity="ManagedContact"/>
     <elements>
         <element name="ManagedContact" positionX="-63" positionY="-18" width="128" height="178"/>
     </elements>

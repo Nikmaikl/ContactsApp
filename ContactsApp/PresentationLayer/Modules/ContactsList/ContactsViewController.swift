@@ -11,19 +11,22 @@ import UIKit
 class ContactsViewController: UITableViewController {
     
     var contactsLoadService = ContactsLoadService()
-    var co
+    
     var contacts = [Contact]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.allowsMultipleSelectionDuringEditing = false
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContactPressed))
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationItem.largeTitleDisplayMode = .automatic
+        
         self.title = "Contacts"
         self.tableView.register(UINib.init(nibName: "ContactCell", bundle: nil), forCellReuseIdentifier: "ContactCell")
         
-        
-        
-        if let contacts = contactsLoadService.loadContacts() {
+        if let contacts = contactsLoadService.configureContacts() {
             self.contacts = contacts
         }
     }
@@ -31,19 +34,24 @@ class ContactsViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
 
+    
+    @objc func addContactPressed() {
+        let detailsVC = ContactDetailsController(nibName: "ContactDetailsController", bundle: nil)
+        detailsVC.title = "Add New Contact"
+        self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return contacts.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "ContactCell"
         let contact = contacts[indexPath.row]
@@ -53,11 +61,22 @@ class ContactsViewController: UITableViewController {
         
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let contact = contacts[indexPath.row]
         let detailsVC = ContactDetailsController(nibName: "ContactDetailsController", bundle: nil)
         detailsVC.contact = contact
         self.navigationController?.pushViewController(detailsVC, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            contacts.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
     }
 }
