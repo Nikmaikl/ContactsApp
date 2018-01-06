@@ -21,7 +21,7 @@ class ContactsLoadService {
                     if let contacts = loadContacts() {
                         finalContacts = contacts
                         for contact in contacts {
-                            ManagedContact.addContact(firstName: contact.firstName, lastName: contact.lastName, phoneNumber: contact.phoneNumber, streetAddress1: contact.streetAddress1, streetAddress2: contact.streetAddress2, city: contact.city, state: contact.state, zipCode: contact.zipCode)
+                            ManagedContact.addContact(newContact: contact)
                         }
                         return finalContacts
                     }
@@ -35,6 +35,22 @@ class ContactsLoadService {
         }
         
         return finalContacts
+    }
+    
+    func loadContactFields(contact: Contact) -> [String?] {
+        var titles = [String?]()
+        
+        titles.append(contact.firstName)
+        titles.append(contact.lastName)
+        titles.append(contact.phoneNumber)
+        
+        titles.append(contact.streetAddress1)
+        titles.append(contact.streetAddress2)
+        titles.append(contact.city)
+        titles.append(contact.state)
+        titles.append(contact.zipCode)
+        
+        return titles
     }
     
     private func loadContacts() -> [Contact]? {

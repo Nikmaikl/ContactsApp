@@ -26,6 +26,11 @@
 		76FFB81820010472006D7E5B /* ContactDetailsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FFB81620010472006D7E5B /* ContactDetailsController.xib */; };
 		76FFB81C200104B0006D7E5B /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FFB81A200104B0006D7E5B /* DetailCell.swift */; };
 		76FFB81D200104B0006D7E5B /* DetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FFB81B200104B0006D7E5B /* DetailCell.xib */; };
+		76FFB82120014D70006D7E5B /* ContactEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FFB81F20014D70006D7E5B /* ContactEditViewController.swift */; };
+		76FFB82220014D70006D7E5B /* ContactEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FFB82020014D70006D7E5B /* ContactEditViewController.xib */; };
+		76FFB82520015733006D7E5B /* EditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FFB82320015733006D7E5B /* EditCell.swift */; };
+		76FFB82620015733006D7E5B /* EditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76FFB82420015733006D7E5B /* EditCell.xib */; };
+		76FFB82A2001686C006D7E5B /* UINavigationController+PreviousVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76FFB8292001686C006D7E5B /* UINavigationController+PreviousVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,11 @@
 		76FFB81620010472006D7E5B /* ContactDetailsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactDetailsController.xib; sourceTree = "<group>"; };
 		76FFB81A200104B0006D7E5B /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		76FFB81B200104B0006D7E5B /* DetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCell.xib; sourceTree = "<group>"; };
+		76FFB81F20014D70006D7E5B /* ContactEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEditViewController.swift; sourceTree = "<group>"; };
+		76FFB82020014D70006D7E5B /* ContactEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactEditViewController.xib; sourceTree = "<group>"; };
+		76FFB82320015733006D7E5B /* EditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCell.swift; sourceTree = "<group>"; };
+		76FFB82420015733006D7E5B /* EditCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditCell.xib; sourceTree = "<group>"; };
+		76FFB8292001686C006D7E5B /* UINavigationController+PreviousVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+PreviousVC.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +96,7 @@
 				76FFB7FE2000E228006D7E5B /* ServiceLayer */,
 				76FFB7EB2000049E006D7E5B /* PresentationLayer */,
 				76FFB7EA20000491006D7E5B /* CoreLayer */,
+				76FFB8282001684B006D7E5B /* Extensions */,
 				76FFB7D21FFFF6AD006D7E5B /* AppDelegate.swift */,
 				76FFB7D91FFFF6AD006D7E5B /* Assets.xcassets */,
 				76FFB7DB1FFFF6AD006D7E5B /* LaunchScreen.storyboard */,
@@ -150,6 +161,7 @@
 		76FFB8012000F373006D7E5B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				76FFB81E20014D3A006D7E5B /* ContactEdit */,
 				76FFB80C2001034F006D7E5B /* ContactDetails */,
 				76FFB8022000F37F006D7E5B /* ContactsList */,
 			);
@@ -178,20 +190,47 @@
 		76FFB80C2001034F006D7E5B /* ContactDetails */ = {
 			isa = PBXGroup;
 			children = (
-				76FFB8192001048C006D7E5B /* DetailCell */,
+				76FFB8192001048C006D7E5B /* Cells */,
 				76FFB81520010472006D7E5B /* ContactDetailsController.swift */,
 				76FFB81620010472006D7E5B /* ContactDetailsController.xib */,
 			);
 			path = ContactDetails;
 			sourceTree = "<group>";
 		};
-		76FFB8192001048C006D7E5B /* DetailCell */ = {
+		76FFB8192001048C006D7E5B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				76FFB81A200104B0006D7E5B /* DetailCell.swift */,
 				76FFB81B200104B0006D7E5B /* DetailCell.xib */,
 			);
-			path = DetailCell;
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		76FFB81E20014D3A006D7E5B /* ContactEdit */ = {
+			isa = PBXGroup;
+			children = (
+				76FFB82720015739006D7E5B /* Cells */,
+				76FFB81F20014D70006D7E5B /* ContactEditViewController.swift */,
+				76FFB82020014D70006D7E5B /* ContactEditViewController.xib */,
+			);
+			path = ContactEdit;
+			sourceTree = "<group>";
+		};
+		76FFB82720015739006D7E5B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				76FFB82320015733006D7E5B /* EditCell.swift */,
+				76FFB82420015733006D7E5B /* EditCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		76FFB8282001684B006D7E5B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				76FFB8292001686C006D7E5B /* UINavigationController+PreviousVC.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +299,8 @@
 				76FFB81D200104B0006D7E5B /* DetailCell.xib in Resources */,
 				76FFB8072000F3B1006D7E5B /* ContactCell.xib in Resources */,
 				76FFB7DA1FFFF6AD006D7E5B /* Assets.xcassets in Resources */,
+				76FFB82220014D70006D7E5B /* ContactEditViewController.xib in Resources */,
+				76FFB82620015733006D7E5B /* EditCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76FFB8062000F3B1006D7E5B /* ContactCell.swift in Sources */,
+				76FFB82120014D70006D7E5B /* ContactEditViewController.swift in Sources */,
 				76FFB7F6200005D1006D7E5B /* ManagedContact.swift in Sources */,
 				76FFB81C200104B0006D7E5B /* DetailCell.swift in Sources */,
 				76FFB8002000E24B006D7E5B /* ContactsLoadService.swift in Sources */,
@@ -280,8 +322,10 @@
 				76FFB7F0200004F8006D7E5B /* CoreDataManager.swift in Sources */,
 				76FFB7E81FFFF7FD006D7E5B /* ContactsViewController.swift in Sources */,
 				76FFB81720010472006D7E5B /* ContactDetailsController.swift in Sources */,
+				76FFB82520015733006D7E5B /* EditCell.swift in Sources */,
 				76FFB7F32000055D006D7E5B /* ContactsModel.xcdatamodeld in Sources */,
 				76FFB7FB2000DEBE006D7E5B /* Parser.swift in Sources */,
+				76FFB82A2001686C006D7E5B /* UINavigationController+PreviousVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

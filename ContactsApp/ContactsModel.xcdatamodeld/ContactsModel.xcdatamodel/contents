@@ -12,6 +12,7 @@
         <attribute name="zipCode" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <fetchRequest name="ManagedContact" entity="ManagedContact"/>
+    <fetchRequest name="ManagedContactById" entity="ManagedContact" predicateString="contactID == $contactID"/>
     <elements>
         <element name="ManagedContact" positionX="-63" positionY="-18" width="128" height="178"/>
     </elements>

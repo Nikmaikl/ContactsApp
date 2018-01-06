@@ -2,4 +2,70 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ContactsApp/CoreLayer/CoreData/Entities/ManagedContact.swift"
+            timestampString = "536965522.002291"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "deleteContact(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ContactsApp/CoreLayer/CoreData/Entities/ManagedContact.swift"
+            timestampString = "536965522.002671"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "updateContact(updatedContact:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static ContactsApp.ManagedContact.updateContact(updatedContact: ContactsApp.Contact) -&gt; ()"
+                  moduleName = "ContactsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minikolev/Documents/XCodeProjects/ContactsApp/ContactsApp/CoreLayer/CoreData/Entities/ManagedContact.swift"
+                  timestampString = "536964740.1201431"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "2529">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in static ContactsApp.ManagedContact.updateContact(updatedContact: ContactsApp.Contact) -&gt; ()"
+                  moduleName = "ContactsApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/minikolev/Documents/XCodeProjects/ContactsApp/ContactsApp/CoreLayer/CoreData/Entities/ManagedContact.swift"
+                  timestampString = "536964740.122907"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

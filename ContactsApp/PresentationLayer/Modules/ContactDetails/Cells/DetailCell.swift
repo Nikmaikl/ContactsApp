@@ -10,7 +10,7 @@ import UIKit
 
 class DetailCell: UITableViewCell {
 
-    @IBOutlet weak var placeholderTextField: UITextField!
+    @IBOutlet weak var titleLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

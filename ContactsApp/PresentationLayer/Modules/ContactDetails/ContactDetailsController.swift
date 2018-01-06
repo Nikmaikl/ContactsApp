@@ -10,11 +10,17 @@ import UIKit
 
 class ContactDetailsController: UITableViewController {
     
-    var cellPlaceholders = [String]()
+    var cellTitles = [String?]()
+    var contactsLoadService = ContactsLoadService()
     
     var contact: Contact! {
         didSet {
             self.title = contact.firstName + " " + contact.lastName
+            cellTitles = contactsLoadService.loadContactFields(contact: contact)
+            cellTitles.removeFirst()
+            cellTitles.removeFirst()
+            cellTitles = cellTitles.filter { $0 != nil }
+            self.tableView.reloadData()
         }
     }
     
@@ -22,23 +28,20 @@ class ContactDetailsController: UITableViewController {
         super.viewDidLoad()
         
         self.navigationItem.largeTitleDisplayMode = .never
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editPressed))
+        
         self.tableView.register(UINib.init(nibName: "DetailCell", bundle: nil), forCellReuseIdentifier: "DetailCell")
-        configPlaceholders()
-    }
-    
-    func configPlaceholders() {
-        cellPlaceholders.append("First Name")
-        cellPlaceholders.append("Last Name")
-        cellPlaceholders.append("Phone Number")
-        cellPlaceholders.append("Street Address1")
-        cellPlaceholders.append("Street Address2")
-        cellPlaceholders.append("City")
-        cellPlaceholders.append("State")
-        cellPlaceholders.append("ZipCode")
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @objc func editPressed() {
+        let editVC = ContactEditViewController(nibName: "ContactEditViewController", bundle: nil)
+        editVC.title = "Edit Contact"
+        editVC.contact = contact
+        self.navigationController?.pushViewController(editVC, animated: false)
     }
 
     // MARK: - Table view data source
@@ -47,14 +50,14 @@ class ContactDetailsController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellPlaceholders.count
+        return cellTitles.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = "DetailCell"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! DetailCell
-        cell.placeholderTextField.placeholder = cellPlaceholders[indexPath.row]
+        cell.titleLbl.text = cellTitles[indexPath.row]
         
         return cell
     }

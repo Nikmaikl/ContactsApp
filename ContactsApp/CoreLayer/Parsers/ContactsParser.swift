@@ -10,16 +10,15 @@ import Foundation
 import CoreData
 
 struct Contact: Decodable {
-
     let contactID: String
-    let firstName: String
-    let lastName: String
-    let phoneNumber: String
-    let streetAddress1: String?
-    let streetAddress2: String?
-    let city: String?
-    let state: String?
-    let zipCode: String?
+    var firstName: String
+    var lastName: String
+    var phoneNumber: String
+    var streetAddress1: String?
+    var streetAddress2: String?
+    var city: String?
+    var state: String?
+    var zipCode: String?
 }
 
 class ContactParser: Parser<[Contact]> {
