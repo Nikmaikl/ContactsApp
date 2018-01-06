@@ -57,6 +57,7 @@ class ContactEditViewController: UITableViewController {
         }
         else if navigationController?.previousViewController() is ContactsViewController {
             if let contact = contact {
+                if contact.firstName == "" || contact.lastName == "" { return }
                 ManagedContact.addContact(newContact: contact)
             }
         }

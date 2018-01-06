@@ -32,7 +32,7 @@ class ContactsViewController: UITableViewController {
         super.viewDidAppear(animated)
         
         if let contacts = contactsLoadService.configureContacts() {
-            self.contacts = contacts
+            self.contacts = contacts.sorted { $0.firstName < $1.firstName }
             self.tableView.reloadData()
         }
     }
