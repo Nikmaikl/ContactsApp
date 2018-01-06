@@ -9,20 +9,20 @@
 import Foundation
 import CoreData
 
-extension Contact {
+extension ManagedContact {
     static func generateContactIdString() -> String {
         return String(arc4random()+arc4random())
     }
     
-    static func fetchRequestContacts(with: String, model: NSManagedObjectModel) -> NSFetchRequest<Contact>? {
-        let templateName = "Contact"
+    static func fetchRequestContacts(with: String, model: NSManagedObjectModel) -> NSFetchRequest<ManagedContact>? {
+        let templateName = "ManagedContact"
         
-        guard let fetchRequest = model.fetchRequestFromTemplate(withName: templateName, substitutionVariables: ["id" : with]) as? NSFetchRequest<Contact> else {
+        guard let fetchRequest = model.fetchRequestFromTemplate(withName: templateName, substitutionVariables: ["id" : with]) as? NSFetchRequest<ManagedContact> else {
             assert(false, "No template with name \(templateName)!")
             return nil
         }
         
-        return fetchRequest.copy() as? NSFetchRequest<Contact>
+        return fetchRequest.copy() as? NSFetchRequest<ManagedContact>
     }
     
     static func addContact(with contactID: String, firstName: String, lastName:  String, phoneNumber: String, streetAddress1: String, streetAddress2: String, city: String, state: String, zipCode: String) {
@@ -31,7 +31,7 @@ extension Contact {
             return
         }
         
-        let contact = NSEntityDescription.insertNewObject(forEntityName: "Contact", into: context) as? Contact
+        let contact = NSEntityDescription.insertNewObject(forEntityName: "ManagedContact", into: context) as? ManagedContact
         contact?.contactID = contactID
         contact?.firstName = firstName
         contact?.lastName = lastName

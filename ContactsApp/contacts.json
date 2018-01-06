@@ -1,0 +1,13 @@
+ [
+  {
+  "contactID": "123",
+  "firstName": "Michael",
+  "lastName": "Nikolaev",
+  "phoneNumber": "8914647121",
+  "streetAddress1": "Test street 1",
+  "streetAddress2": "Test street 2",
+  "city": "Moscow",
+  "state": "Moscow state",
+  "zipCode": "390000"
+  }
+  ]
