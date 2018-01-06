@@ -29,7 +29,7 @@ extension ManagedContact {
             let results = try context.fetch(fetchRequest)
             return results
         } catch {
-            print("Failed to fetch AppUSer: \(error)")
+            print("Failed to fetch Contact: \(error)")
         }
 
         return nil
@@ -53,7 +53,7 @@ extension ManagedContact {
             }
             return results[0]
         } catch {
-            print("Failed to fetch AppUSer: \(error)")
+            print("Failed to fetch Contact: \(error)")
         }
         
         return nil
